@@ -1,0 +1,136 @@
+/* Reset הכללים הבסיסיים */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #000000, #818385);
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin: 20px 0;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Header עם תפריט ניווט */
+header {
+    background-color: #000000;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* גלריה עם פריסה אקראית של תמונות */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* הגדרת עמודות משתנות */
+    gap: 20px;
+    padding: 20px;
+    margin: 0 5%;
+}
+
+/* עיצוב כל תמונה */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-sizing: border-box; /* כולל את ה-Border בגודל הכללי */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 300px; /* גובה קבוע למנוע חיתוך */
+    border: 3px solid #fff; /* בורדר סביב התמונה */
+}
+
+/* שינוי גודל התמונות בצורה אקראית */
+.gallery-item:nth-child(odd) {
+    grid-row: span 2;
+}
+
+.gallery-item:nth-child(even) {
+    grid-column: span 2;
+}
+
+/* אפקט hover עם שינוי בשדה התמונה */
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* עיצוב תמונות בתוך גלריה */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* התמונה תכסה את הקונטיינר מבלי לחתוך */
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px; /* בורדר פנימי */
+    box-sizing: border-box; /* כולל את ה-Border בגודל התמונה */
+}
+
+/* תיאור התמונות */
+.gallery-item .info {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .info {
+    opacity: 1;
+}
+
+/* עיצוב כותרת ותיאור בתוך התמונות */
+.gallery-item .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.gallery-item .description {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* מעבר רך של האתר */
+html {
+    scroll-behavior: smooth;
+}
